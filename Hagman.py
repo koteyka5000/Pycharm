@@ -32,5 +32,4 @@ def game():
     template = start_template(word_in_play)
     welcome_speech(list_to_string_convert(template))
 
-
 game()
