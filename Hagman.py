@@ -1,3 +1,6 @@
+from random import choice
+
+
 def welcome_speech(t):
     print(f"""
     Добро пожаловать в игру!
@@ -20,7 +23,7 @@ def list_to_string_convert(t):
 
 
 def get_word(w):
-    return w[0]
+    return choice(w)
 
 
 def replace(inp, word, template):
@@ -29,12 +32,13 @@ def replace(inp, word, template):
             template[i] = inp
     return template
 
+
 def game():
     progress = True
-    word = ['oreaenegeeeg']
+    words = ['яблоко', "вишня", "банан", "киви", "апельсин", "персик"]
     lifes = 3
 
-    word_in_play = get_word(word)
+    word_in_play = get_word(words)
     template = start_template(word_in_play)
     welcome_speech(list_to_string_convert(template))
     while progress:
@@ -47,10 +51,12 @@ def game():
         else:
             print('Такой буквы в слове нет :(')
             lifes -= 1
-        if lifes == 0 or word_in_play == template:
+        if lifes == 0 or word_in_play == list_to_string_convert(template):
             progress = False
     if lifes == 0:
         print(f'Вы хорошо держались :)\nЗагаданым словом было {word_in_play}')
-    elif word_in_play == template:
+    elif word_in_play == list_to_string_convert(template):
         print(f'Вы победили!! :)\nУ вас осталось попыток: {lifes}')
+
+
 game()
