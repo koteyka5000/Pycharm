@@ -41,7 +41,7 @@ def game():
     template = start_template(word_in_play)
     welcome_speech(list_to_string_convert(template))
     while progress:
-        print('======================')
+        print('=====================')
         print(f'У вас осталось попыток: {lives}')
         print(f'Сейчас слово: {list_to_string_convert(template)}')
         inp = input('Введите предпологаемую букву: ')
