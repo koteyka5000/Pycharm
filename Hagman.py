@@ -11,15 +11,11 @@ def welcome_speech(t):
 
 
 def start_template(w):
-    t = []
-    for l in w:
-        t.append('_')
-    return t
+    return list('_' * len(w))
 
 
 def list_to_string_convert(t):
-    s = ''
-    return s.join(t)
+    return ''.join(t)
 
 
 def get_word(w):
@@ -39,27 +35,27 @@ def replace(inp, word, template):
 def game():
     progress = True
     words = ['яблоко', "вишня", "банан", "киви", "апельсин", "персик"]
-    lifes = 3
+    lives = 3
 
     word_in_play = get_word(words)
     template = start_template(word_in_play)
     welcome_speech(list_to_string_convert(template))
     while progress:
         print('======================')
-        print(f'У вас осталось попыток: {lifes}')
+        print(f'У вас осталось попыток: {lives}')
         print(f'Сейчас слово: {list_to_string_convert(template)}')
         inp = input('Введите предпологаемую букву: ')
         if inp in word_in_play:
             template = replace(inp, word_in_play, template)
         else:
             print('Такой буквы в слове нет :(')
-            lifes -= 1
-        if lifes == 0 or word_in_play == list_to_string_convert(template):
+            lives -= 1
+        if lives == 0 or word_in_play == list_to_string_convert(template):
             progress = False
-    if lifes == 0:
+    if lives == 0:
         print(f'Вы хорошо держались :)\nЗагаданым словом было {word_in_play}')
     elif word_in_play == list_to_string_convert(template):
-        print(f'Вы победили!! :)\nУ вас осталось попыток: {lifes}')
+        print(f'Вы победили!! :)\nУ вас осталось попыток: {lives}')
 
 
 game()
