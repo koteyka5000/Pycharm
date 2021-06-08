@@ -52,10 +52,13 @@ def game():
             lives -= 1
         if lives == 0 or word_in_play == list_to_string_convert(template):
             progress = False
+    print('\n=+=+=+=+=+=+=+=+=+=+=+=+')
     if lives == 0:
         print(f'Вы хорошо держались :)\nЗагаданым словом было {word_in_play}')
     elif word_in_play == list_to_string_convert(template):
         print(f'Вы победили!! :)\nУ вас осталось попыток: {lives}')
+    print('Made by Koteyka')
+    print('=+=+=+=+=+=+=+=+=+=+=+=+')
 
 
 game()
