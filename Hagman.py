@@ -27,9 +27,12 @@ def get_word(w):
 
 
 def replace(inp, word, template):
-    for i in range(len(word)):
-        if inp == word[i]:
-            template[i] = inp
+    if word.count(inp) == 1:
+        template[word.index(inp)] = inp
+    else:
+        for i in range(len(word)):
+            if inp == word[i]:
+                template[i] = inp
     return template
 
 
