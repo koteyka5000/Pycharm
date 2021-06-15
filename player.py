@@ -21,7 +21,7 @@ def game(areaq):
         where = input('wasd: ')
 
         if where == "вниз" or where == 's':
-            if nowy <= 2:
+            if nowy <= area_len-2:
                 try:
                     nowy += 1
                     area[nowy][nowx] = 'X'
@@ -31,7 +31,7 @@ def game(areaq):
                     print('Вы дошли до края платформы!')
 
         elif where == "вверх" or where == 'w':
-            if nowy >= 1:
+            if nowy >= area_len-3:
                 try:
                     nowy -= 1
                     area[nowy][nowx] = 'X'
@@ -41,7 +41,7 @@ def game(areaq):
                     print('Вы дошли до края платформы!')
 
         elif where == "право" or where == 'd':
-            if nowx <= 2:
+            if nowx <= area_len-2:
                 try:
                     nowx += 1
                     area[nowy][nowx] = 'X'
@@ -51,7 +51,7 @@ def game(areaq):
                     print('Вы дошли до края платформы!')
 
         elif where == "лево" or where == "a":
-            if nowx >= 1:
+            if nowx >= area_len-3:
                 try:
                     nowx -= 1
                     area[nowy][nowx] = 'X'
