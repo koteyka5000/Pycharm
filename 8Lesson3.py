@@ -1,1 +1,0 @@
-for i in range(1, int(input('Число: ')) + 1 ): print(str(i) * i)

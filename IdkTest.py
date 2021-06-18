@@ -1,4 +1,7 @@
 q = input()
+"""
+TEST HOMEWORK
+"""
 listq = list(q)
 l = 0
 u = 0
