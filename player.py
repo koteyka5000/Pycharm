@@ -1,7 +1,7 @@
 def get_area(s):
     area = [['X', '.', '.', '.'],
-            ['.', '.', '.', '.'],
-            ['.', '.', '.', '.'],
+            ['.', 'o', '.', '.'],
+            ['.', '.', '.', 'o'],
             ['.', '.', '.', '.']]
     return [area, s]
 
@@ -23,39 +23,50 @@ def game(areaq):
         if where == "вниз" or where == 's':
             if nowy <= area_len-2:
                 try:
-                    nowy += 1
-                    area[nowy][nowx] = 'X'
-                    area[nowy-1][nowx] = '.'
+                    if not area[nowy+1][nowx] == 'o':
+                        nowy += 1
+                        area[nowy][nowx] = 'X'
+                        area[nowy-1][nowx] = '.'
 
                 except:
                     print('Вы дошли до края платформы!')
+
 
         elif where == "вверх" or where == 'w':
             if nowy >= area_len-3:
                 try:
-                    nowy -= 1
-                    area[nowy][nowx] = 'X'
-                    area[nowy+1][nowx] = '.'
+
+                    if not area[nowy-1][nowx] == 'o':
+                        nowy -= 1
+                        area[nowy][nowx] = 'X'
+                        area[nowy+1][nowx] = '.'
+                    else:
+                        print('Тут стена :|')
 
                 except:
                     print('Вы дошли до края платформы!')
+
 
         elif where == "право" or where == 'd':
             if nowx <= area_len-2:
                 try:
-                    nowx += 1
-                    area[nowy][nowx] = 'X'
-                    area[nowy][nowx-1] = '.'
+
+                    if not area[nowy][nowx+1] == 'o':
+                        nowx += 1
+                        area[nowy][nowx] = 'X'
+                        area[nowy][nowx-1] = '.'
 
                 except:
                     print('Вы дошли до края платформы!')
 
+
         elif where == "лево" or where == "a":
             if nowx >= area_len-3:
                 try:
-                    nowx -= 1
-                    area[nowy][nowx] = 'X'
-                    area[nowy][nowx+1] = '.'
+                    if not area[nowy][nowx-1] == 'o':
+                        nowx -= 1
+                        area[nowy][nowx] = 'X'
+                        area[nowy][nowx+1] = '.'
 
                 except:
                     print('Вы дошли до края платформы!')
